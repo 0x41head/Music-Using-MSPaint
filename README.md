@@ -14,3 +14,8 @@ Files you need to download for this to work:
 2)Silence.wav: https://drive.google.com/open?id=13Hk5guZH6_fZx5_2xufOXG51ebHwJDMy
 
 
+
+Tips:
+Sometimes the OCR acts weirdly. To prevent that the best font to use is "Bahnschrift SemiLight Condensed" with spaces between each word
+
+
