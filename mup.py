@@ -13,7 +13,12 @@ for x in range(0,11):
 #print(note)
                     
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+
+
+#This is the location of file you want to open
 img = Image.open("BASS.png") 
+#
 bpm_img = img.crop((2,104,233,202))
 sample_img= img.crop((1,1,1767,102))
 notes_1= img.crop((5,205,231,256))
@@ -122,6 +127,8 @@ for x in range(0,len(final)):
           music = np.concatenate((music,temp))
 print(music)
 print(music.size)
+
+#This is how you want to save it as
 librosa.output.write_wav('bass.wav', music, sr)
                     
           
