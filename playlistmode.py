@@ -86,7 +86,7 @@ for y in range(0, len(ypos)):
           mix=mix+music
 
                     
-##fianl mix                    
+##final mix                    
 librosa.output.write_wav("mix.wav", mix, sr=44100)
 
                     
