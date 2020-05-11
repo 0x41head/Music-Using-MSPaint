@@ -13,12 +13,7 @@ for x in range(0,11):
 #print(note)
                     
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
-
-
-#This is the location of file you want to open
-img = Image.open("BASS.png") 
-#
+img = Image.open("lead.png") 
 bpm_img = img.crop((2,104,233,202))
 sample_img= img.crop((1,1,1767,102))
 notes_1= img.crop((5,205,231,256))
@@ -98,9 +93,10 @@ for x in range(0, len(prefinal)):
                     final.append([prefinal[x][0],1])
                     
                     
-print(final)
+#print(final)
 
-dur=(60/int(bpm))*16
+dur=float((60/int(bpm))*16)
+print(dur)
 y, sr = librosa.load(sample,duration =dur, sr=44100)
 sil,sr = librosa.load("silence.wav", duration=dur, sr=44100)
 #print(y.size)
@@ -125,11 +121,20 @@ for x in range(0,len(final)):
                     temp = librosa.effects.pitch_shift(temp1, sr=44100, n_steps=pc)
           #print(temp)
           music = np.concatenate((music,temp))
-print(music)
-print(music.size)
 
-#This is how you want to save it as
-librosa.output.write_wav('bass.wav', music, sr)
+#music = music[:y.size]
+#print(music)
+#print(music.size)
+S= librosa.stft(music)
+tmo= (librosa.get_duration(S=S,sr=44100))
+save_name="ld.wav"
+librosa.output.write_wav(save_name, music, sr)
+off= tmo-dur
+if off>0 :
+     timecheck,sr = librosa.load(save_name, offset=off, sr=44100)
+else:
+     timecheck,sr = librosa.load(save_name,duration=dur,sr=44100)
+librosa.output.write_wav(save_name, timecheck, sr)
                     
           
 
