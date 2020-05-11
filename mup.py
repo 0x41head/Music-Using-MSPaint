@@ -13,7 +13,12 @@ for x in range(0,11):
 #print(note)
                     
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+### image file too scan
 img = Image.open("lead.png") 
+####
+
+
 bpm_img = img.crop((2,104,233,202))
 sample_img= img.crop((1,1,1767,102))
 notes_1= img.crop((5,205,231,256))
@@ -127,7 +132,11 @@ for x in range(0,len(final)):
 #print(music.size)
 S= librosa.stft(music)
 tmo= (librosa.get_duration(S=S,sr=44100))
+
+###name of file for saving
 save_name="ld.wav"
+
+###
 librosa.output.write_wav(save_name, music, sr)
 off= tmo-dur
 if off>0 :
