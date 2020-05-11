@@ -3,17 +3,15 @@ import pytesseract
 import librosa
 import numpy as np
 import sounddevice as sd
-nut=['B','A#','A','G#','G','F#','F','E','D#','D','C#','C']
-nut=nut[::-1]
-nut2=[]
-for x in range(0,11):
-          for a in range(0,len(nut)):
-                    nut2.append(nut[a]+str(x))
-                    
-#print(note)
+
                     
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+### image file to scan
 img = Image.open("samplepl.png") 
+####
+
+
 bpm_img = img.crop((2,104,233,202))
 
 notes_1= img.crop((5,205,231,256))
@@ -88,7 +86,7 @@ for y in range(0, len(ypos)):
           mix=mix+music
 
                     
-                    
+##fianl mix                    
 librosa.output.write_wav("mix.wav", mix, sr=44100)
 
                     
