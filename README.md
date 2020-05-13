@@ -16,6 +16,5 @@ Files you need to download for this to work:
 
 
 Tips:
-Sometimes the OCR acts weirdly. To prevent that the best font to use is "Bahnschrift SemiLight Condensed" with spaces between each word
-
+Sometimes the OCR acts weirdly. To prevent that the best font to use is "Bahnschrift SemiLight Condensed"
 
